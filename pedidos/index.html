@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title> Pedido Tortas </title>
+</head>
+<body>
+    <div id="formulario">
+        <div id=tabla>
+            <p>Pedido Especial</p>
+            <table id="tabPedido">
+                <thead>
+                    <tr>
+                        <th width="50px" id="id">#</th>
+                        <th width="80px">Hora</th>
+                        <th width="220px">Pedido</th>
+                        <th width="80px">Abono</th>
+                        <th width="80px">Precio</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="GrupoLabel">
+        <input type="date" name="dia" id="Dia">
+
+            <label for="solicitante" class="soli">Solicitante</label>
+            <label for="Torta" class="torta">Torta</label>
+            <label for="caracteristicas" class="carac">Características</label>
+            <label for="mensaje" class="mensa">Mensaje</label>
+            <label for="Hora" class="hora">Hora</label>
+        </div>
+         <div id="campos">
+            <div id="botones">
+                <button id="btnNuevo">Nuevo</button>
+                <button id="btnAnular">Anular</button>
+                <button id="btnRegistrar">Registrar</button>
+    
+            </div> 
+            <div id="campo">
+                <input type="text" id="Solicitante" maxlength="30">
+                <label for="telefono" class="fono">Teléfono</label>
+                <input type="number" id="Telefono" maxlength="10">
+             </div>
+            <div id="campo">
+                <select name="tipomasa" id="TipoMasa">
+                    <option value="">Tipo de masa</option>
+                    <option value="bizcocho">Bizcocho</option>
+                    <option value="panqueque">Panqueque</option>
+                    <option value="merengue">Merengue</option>
+                    <option value="hoja">Hoja</option>
+                </select>
+                <select name="sabormasa" id="SaborMasa">
+                    <option value="">Sabor de masa</option>
+                    <option value="vainilla">Vainilla</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="nuez">Nuez</option>
+                </select>
+                <select name="Cobertura" id="Cobertura">
+                    <option value="">Cobertura</option>
+                    <option value="crema chantilly">Crema Chantilly</option>
+                    <option value="crema de vainilla">Crema de Vainillas</option>
+                    <option value="manjar">Manjar</option>
+                    <option value="chocolate">Chocolate</option>
+                </select>
+                <select name="Tamaño" id="Tamaño">
+                    <option value="">Tamaño</option>
+                    <option value="6 personas">6 Personas</option>
+                    <option value="12 personas">12 Personas</option>
+                    <option value="18 personas">18 Personas</option>
+                    <option value="24 personas">24 Personas</option>
+                </select>
+            </div>
+            <div id="campo">
+                <input type="text" id="Caracteristicas">
+            </div>
+            <div id="campo">
+                <input type="text" id="Mensaje">
+            </div>
+            <div id="campo">
+                <select name="Hora" id="Hora">
+                    <option value="">Hora</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                </select>
+                <label for="abono" class="abono">Abono</label>
+                <input type="number" id="Abono">
+                <label for="number"class="precio">Precio</label>
+                <input type="number" id="Precio">
+            </div>
+        </div>
+    </div>
+    <script src="Pedido.js"></script>
+</body>
+</html>
+
+    
