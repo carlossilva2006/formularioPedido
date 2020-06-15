@@ -156,13 +156,13 @@ function pedidoFecha (i) {
     let fila     = tabla.insertRow(0),  
         Ccampos  = fila.insertCell(0),
         Chora    = fila.insertCell(1),
-        Ccaract  = fila.insertCell(2),
+        CPedido  = fila.insertCell(2),
         Cabon    = fila.insertCell(3),
         Cpre     = fila.insertCell(4);
 
     Ccampos.innerHTML = jsonPedi[i].id;
     Chora.innerHTML   = jsonPedi[i].hora,
-    Ccaract.innerHTML = `${jsonPedi[i].tipo} <br>
+    CPedido.innerHTML = `${jsonPedi[i].tipo} <br>
                         ${jsonPedi[i].sabor} <br>
                         ${jsonPedi[i].cobertura} <br>
                         ${jsonPedi[i].tamaño}`,
