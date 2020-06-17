@@ -107,10 +107,10 @@ const Registrar = () => {
     tipo.value !=="" && sabor.value !== "" && cobertura.value !=="" && tamaño.value !==""){
         if(estadoNuevo){
            console.log(jsonPedi.length);
-          _id = jsonPedi.length + 1;
+          _id = jsonPedi.length;
         
              const jsonPedido = {
-               id          : _id,
+               id          : _id + 1,
                solicitante : solicitante.value, 
                fono        : fono.value, 
                tipo        : tipo.value, 
@@ -126,17 +126,27 @@ const Registrar = () => {
             }
             jsonPedi.push(jsonPedido)
             agregarPedido(_id)
-            // console.log();
-            // llenarTabla();
+            
     }else{
-            // filaSelec.cells[0].innerHTML = jsonPedi.length;
-            filaSelec.cells[1].innerHTML = hora.value;
-            filaSelec.cells[2].innerHTML = `${tipo.value}<br> 
-                                            ${sabor.value} <br> 
-                                            ${cobertura.value} <br> 
-                                            ${tamaño.value} <br> `;
-            filaSelec.cells[3].innerHTML = abono.value;
-            filaSelec.cells[4].innerHTML = precio.value;        
+        _id  =  filaSelec.cells[0].innerHTML;  
+        jsonPedi[_id -1].hora = hora.value
+        jsonPedi[_id -1].solicitante = solicitante.value
+        jsonPedi[_id -1].fono = fono.value
+        jsonPedi[_id -1].tipo = tipo.value
+        jsonPedi[_id -1].sabor = sabor.value
+        jsonPedi[_id -1].cobertura = cobertura.value
+        jsonPedi[_id -1].tamaño = tamaño.value
+        jsonPedi[_id -1].caract = caract.value
+        jsonPedi[_id -1].mensaje = mensaje.value
+        jsonPedi[_id -1].abono = abono.value
+        jsonPedi[_id -1].precio = precio.value
+        filaSelec.cells[1].innerHTML =    jsonPedi[_id -1].hora;
+        filaSelec.cells[2].innerHTML = `${jsonPedi[_id -1].tipo}<br> 
+                                            ${jsonPedi[_id -1].sabor} <br> 
+                                            ${jsonPedi[_id -1].cobertura} <br> 
+                                            ${jsonPedi[_id -1].tamaño} <br> `;
+            filaSelec.cells[3].innerHTML = jsonPedi[_id -1].abono;
+            filaSelec.cells[4].innerHTML = jsonPedi[_id -1].precio;        
         }
     }else{
         alert("debe llenar todos los campos por favor");
@@ -144,12 +154,6 @@ const Registrar = () => {
     Nuevo();
 }
 
-// const llenarTabla = () => {
-//     for (let i = 0; i < jsonPedi.length; i++ ){
-       
-//         agregarPedido(jsonPedi[i])
-//     }
-// }
 
 function pedidoFecha (i) {
 
@@ -185,14 +189,14 @@ function agregarPedido (_id) {
         Cabon    = fila.insertCell(3),
         Cpre     = fila.insertCell(4);
 
-    Ccampos.innerHTML =  jsonPedi.length;
-    Chora.innerHTML   =  hora.value,
-    CPedido.innerHTML = `${tipo.value} <br> 
-                         ${sabor.value} <br> 
-                         ${cobertura.value}<br> 
-                         ${tamaño.value} <br> `,
-    Cabon.innerHTML   = abono.value,
-    Cpre.innerHTML    = precio.value
+    Ccampos.innerHTML =  jsonPedi[_id].id;
+    Chora.innerHTML   =  jsonPedi[_id].hora,
+    CPedido.innerHTML = `${jsonPedi[_id].tipo} <br> 
+                         ${jsonPedi[_id].sabor} <br> 
+                         ${jsonPedi[_id].cobertura}<br> 
+                         ${jsonPedi[_id].tamaño} <br> `,
+    Cabon.innerHTML   =  jsonPedi[_id].abono,
+    Cpre.innerHTML    =  jsonPedi[_id].precio
     
     Nuevo();
     fila.addEventListener("click",() =>{
@@ -202,9 +206,9 @@ function agregarPedido (_id) {
 }
 
 const tomarFila = (fila) => {
-    
+     
     id                = fila.cells[0].innerHTML;
-    hora.value        = jsonPedi[id - 1].hora;
+    hora.value        = jsonPedi[id -1].hora;
     tipo.value        = jsonPedi[id -1].tipo;
     solicitante.value = jsonPedi[id -1].solicitante;
     fono.value        = jsonPedi[id -1].fono;
@@ -213,8 +217,8 @@ const tomarFila = (fila) => {
     sabor.value       = jsonPedi[id -1].sabor;
     cobertura.value   = jsonPedi[id -1].cobertura;
     tamaño.value      = jsonPedi[id -1].tamaño;
-    abono.value       = fila.cells[3].innerHTML;
-    precio.value      = fila.cells[4].innerHTML;
+    abono.value       = jsonPedi[id -1].abono;
+    precio.value      = jsonPedi[id -1].precio;
    
     filaSelec = fila;
 
@@ -224,7 +228,7 @@ const Anular = () => {
     if(filaSelec == null){
         alert("debe seleccionar elementos de la fila a eliminar");
     }else{
-        tabla.deleteRow(estadoNuevo.rowIndex - 1)
+        jsonPedi.delete(estadoNuevo.rowIndex - 1)
         Nuevo()
     }
 }
